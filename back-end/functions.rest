@@ -1,13 +1,13 @@
-@apiUrl = http://localhost:5000/social-media-app-fafc6/us-central1
+@apiUrl = http://localhost:5000/social-media-app-fafc6/us-central1/api
 
 ### Get all screams
-GET {{apiUrl}}/getScreams
+GET {{apiUrl}}/screams
 
 ### Post one scream
-POST {{apiUrl}}/createScream
+POST {{apiUrl}}/scream
 Content-Type: application/json
 
 {
-   "body": "Hello from rest",
+   "body": "Hello from rest 1",
    "userHandle": "user"
 }
