@@ -1,0 +1,13 @@
+@apiUrl = http://localhost:5000/social-media-app-fafc6/us-central1
+
+### Get all screams
+GET {{apiUrl}}/getScreams
+
+### Post one scream
+POST {{apiUrl}}/createScream
+Content-Type: application/json
+
+{
+   "body": "Hello from rest",
+   "userHandle": "user"
+}
