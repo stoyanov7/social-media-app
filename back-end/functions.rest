@@ -1,4 +1,4 @@
-@apiUrl = http://localhost:5000/social-media-app-fafc6/us-central1/api
+@apiUrl = http://localhost:5000/social-media-app-fafc6/europe-west3/api
 
 ### Get all screams
 GET {{apiUrl}}/screams
