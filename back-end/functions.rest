@@ -11,3 +11,14 @@ Content-Type: application/json
    "body": "Hello from rest 1",
    "userHandle": "user"
 }
+
+### Create new user
+POST {{apiUrl}}/signup
+Content-Type: application/json
+
+{
+   "email": "user@gmail.com",
+   "password": "123456",
+   "confirmPassword": "123456",
+   "handle": "user"
+}
