@@ -1,10 +1,13 @@
 @apiUrl = http://localhost:5000/social-media-app-fafc6/europe-west3/api
 
+@accessToken =
+
 ### Get all screams
 GET {{apiUrl}}/screams
 
 ### Post one scream
 POST {{apiUrl}}/scream
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
