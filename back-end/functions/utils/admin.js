@@ -3,7 +3,8 @@ const serviceAccount = require("C:\\Users\\georg\\Downloads\\social-media-app-fa
 
 admin.initializeApp({
    credential: admin.credential.cert(serviceAccount),
-   databaseURL: "https://social-media-app-fafc6.firebaseio.com"
+   databaseURL: "https://social-media-app-fafc6.firebaseio.com",
+   storageBucket: "gs://social-media-app-fafc6.appspot.com"
 });
 
 const db = admin.firestore();
