@@ -1,5 +1,10 @@
 const { db, admin } = require('../utils/admin');
-const { validateSignupData, validateLoginData } = require('../utils/validators');
+const { 
+   validateSignupData, 
+   validateLoginData, 
+   reduceUserDetails 
+} = require('../utils/validators');
+
 const firebase = require('firebase');
 const firebaseConfig = require('../utils/config');
 
@@ -145,3 +150,18 @@ exports.uploadImage = (req, res) => {
    });
    busboy.end(req.rawBody);
 };
+
+exports.addUserDetails = (req, res) => {
+   let userDetails = reduceUserDetails(req.body);
+
+   db
+      .doc(`/users/${req.user.handle}`)
+      .update(userDetails)
+      .then(() => {
+         return res.json({ message: 'Details added successfull' });
+      })
+      .catch(err => {
+         console.log(err);
+         return res.status(500).json({ error: err.code });
+      });
+}
