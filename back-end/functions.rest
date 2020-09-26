@@ -2,7 +2,7 @@
 
 @accessToken =
 
-@screamId = mafQOIni7tbUd4xKm2xU
+@screamId = 
 
 ### Get all screams
 GET {{apiUrl}}/screams
@@ -105,3 +105,12 @@ Authorization: Bearer {{accessToken}}
 
 ### Get scream by id
 GET {{apiUrl}}/scream/{{screamId}}
+
+### Comment on scream
+POST {{apiUrl}}/scream/{{screamId}}/comment
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+   "body": "Comment"
+}
