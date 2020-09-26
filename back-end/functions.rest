@@ -1,6 +1,8 @@
 @apiUrl = http://localhost:5000/social-media-app-fafc6/europe-west3/api
 
-@accessToken = eyJhbGciOiJSUzI1NiIsImtpZCI6IjFlNjYzOGY4NDlkODVhNWVkMGQ1M2NkNDI1MzE0Y2Q1MGYwYjY1YWUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc29jaWFsLW1lZGlhLWFwcC1mYWZjNiIsImF1ZCI6InNvY2lhbC1tZWRpYS1hcHAtZmFmYzYiLCJhdXRoX3RpbWUiOjE2MDExMTMyOTQsInVzZXJfaWQiOiJuSUFKMk5vUUZqZDVHWDZIZm1vSHJBb2V4MHgxIiwic3ViIjoibklBSjJOb1FGamQ1R1g2SGZtb0hyQW9leDB4MSIsImlhdCI6MTYwMTExMzI5NCwiZXhwIjoxNjAxMTE2ODk0LCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInVzZXJAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.DixjHejSTj8enaSCszq8l5eZsm3JTavPgMD8J-MAiWS2DywM5x8YTCBv_IdJ4zeW9XtEmPofY0jIh-3tB3tgMGo9lg877ENuth8tcH13vTNNUutNTvz_jB9TObpoSWp6URueQVX4Ir-2BxqxEhYMOPmcHclG5fSXrT3QrpIj_KvqFVLZH2Oba2i6MMpxr3VnABtkl5p-M0HwJBsfO4QrLEJasJixToBTFZ-wvo1oMssGvnkg1mT-W7vIhGKwvaqb72CllMEBhkL_wBsGS6MbT9X6HuBnvDXibdnum5uDBRkPaHBLzhlopnZrd_WNtmo4O3eucyrPOHvE5iPq9QyIyA
+@accessToken =
+
+@screamId = mafQOIni7tbUd4xKm2xU
 
 ### Get all screams
 GET {{apiUrl}}/screams
@@ -100,3 +102,6 @@ Content-Type: application/json
 ### Get user details 
 GET {{apiUrl}}/user
 Authorization: Bearer {{accessToken}}
+
+### Get scream by id
+GET {{apiUrl}}/scream/{{screamId}}
