@@ -96,3 +96,7 @@ Content-Type: application/json
    "website": "google.com",
    "location": "Sofia, BG"
 }
+
+### Get user details 
+GET {{apiUrl}}/user
+Authorization: Bearer {{accessToken}}
