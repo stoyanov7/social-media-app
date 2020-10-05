@@ -8,7 +8,8 @@ const {
    getScream, 
    commentOnScream,
    likeScream,
-   unlikeScream 
+   unlikeScream, 
+   deleteScreams
 } = require('./handlers/screams');
 
 const { 
@@ -25,6 +26,7 @@ app.get('/scream/:screamId', getScream);
 app.post('/scream/:screamId/comment', firebaseAuth, commentOnScream);
 app.get('/scream/:screamId/like',firebaseAuth, likeScream);
 app.get('/scream/:screamId/unlike',firebaseAuth, unlikeScream);
+app.delete('/scream/:screamId', firebaseAuth, deleteScreams)
 
 app.post('/signup', signup);
 app.post('/login', login);
