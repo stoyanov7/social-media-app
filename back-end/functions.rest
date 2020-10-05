@@ -1,8 +1,8 @@
 @apiUrl = http://localhost:5000/social-media-app-fafc6/europe-west3/api
 
-@accessToken =
+@accessToken = 
 
-@screamId = 
+@screamId =
 
 ### Get all screams
 GET {{apiUrl}}/screams
@@ -114,3 +114,11 @@ Content-Type: application/json
 {
    "body": "Comment"
 }
+
+### Like scream
+GET {{apiUrl}}/scream/{{screamId}}/like
+Authorization: Bearer {{accessToken}}
+
+### Unlike scream
+GET {{apiUrl}}/scream/{{screamId}}/unlike
+Authorization: Bearer {{accessToken}}
