@@ -19,7 +19,8 @@ const {
    login, 
    uploadImage, 
    addUserDetails, 
-   getAuthenticatedUser 
+   getAuthenticatedUser,
+   getUserDetails 
 } = require('./handlers/users');
 
 app.get('/screams', getAllScreams);
@@ -35,6 +36,8 @@ app.post('/login', login);
 app.post('/user/image', firebaseAuth, uploadImage);
 app.post('/user', firebaseAuth, addUserDetails);
 app.get('/user', firebaseAuth, getAuthenticatedUser);
+app.get('/user/:handle', getUserDetails);
+//app.post('/notifications', firebaseAuth, markNotificationsRead);
 
 exports.api = functions.region('europe-west3').https.onRequest(app);
 

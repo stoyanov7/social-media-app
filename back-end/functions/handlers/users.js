@@ -217,3 +217,44 @@ exports.getAuthenticatedUser = (req, res) => {
             return response.status(500).json({ error: err.code });
          });
 }
+
+exports.getUserDetails = (req, res) => {
+   let userDetails = {};
+
+   db.doc(`/users/${req.params.handle}`)
+      .get()
+      .then((doc) => {
+         if (doc.exists) {
+            userDetails.user = doc.data();
+
+            return db.collection('screams')
+               .where('userHandle', '==', req.params.handle)
+               .orderBy('createdAt', 'desc')
+               .get();
+         } else {
+            return res.status(404).json({ error: 'User not found!' });
+         }
+      })
+      .then((data) => {
+         userDetails.screams = [];
+
+         data.forEach(doc => {
+            userDetails.screams.push({
+               body: doc.data().body,
+               createdAt: doc.data().createdAt,
+               userHandle: doc.data().userHandle,
+               userImage: doc.data().userImage,
+               likeCount: doc.data().likeCount,
+               commentCount: doc.data().commentCount,
+               screamId: doc.id
+            })
+         })
+
+         return res.json(userDetails);
+      })
+      .catch(err => {
+         console.log(err);
+
+         return res.status(500).json({ error: err.code });
+      })
+}
