@@ -10,7 +10,12 @@ exports.getAllScreams = (req, res) => {
          data.forEach(doc => {
             screams.push({
                screamId: doc.id,
-               ...doc.data()
+               body: doc.data().body,
+               userHandle: doc.data().userHandle,
+               createdAt: doc.data().createdAt,
+               commentCount: doc.data().commentCount,
+               likeCount: doc.data().likeCount,
+               userImage: doc.data().userImage
             })
          });
 
@@ -23,14 +28,20 @@ exports.postOneScream = (req, res) => {
    const newScream = {
       body: req.body.body,
       userHandle: req.user.handle,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      userImage: req.user.imageUrl, 
+      likeCount: 0,
+      commentCount: 0
    };
 
    db
       .collection('screams')
       .add(newScream)
       .then(doc => {
-         return res.json({ message: `document with ${doc.id} created successfully!` });
+         const resScream = newScream;
+         resScream.screamId = doc.id;
+         
+         res.json(resScream);
       })
       .catch(err => {
          console.log(err);
