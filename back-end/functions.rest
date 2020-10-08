@@ -132,3 +132,12 @@ GET {{apiUrl}}/user/user
 
 ### Get not existing user details by handle
 GET {{apiUrl}}/user/xxx
+
+### Mark notifications read 
+POST {{apiUrl}}/notifications
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+[
+   "78teum4VRd7SpGNnBvNd"
+]
