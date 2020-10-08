@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000/social-media-app-fafc6/europe-west3/api
 
-@accessToken = 
+@accessToken =
 
 @screamId =
 
@@ -122,3 +122,13 @@ Authorization: Bearer {{accessToken}}
 ### Unlike scream
 GET {{apiUrl}}/scream/{{screamId}}/unlike
 Authorization: Bearer {{accessToken}}
+
+### Delete scream
+DELETE {{apiUrl}}/scream/{{screamId}}
+Authorization: Bearer {{accessToken}}
+
+### Get user details by handle
+GET {{apiUrl}}/user/user
+
+### Get not existing user details by handle
+GET {{apiUrl}}/user/xxx
