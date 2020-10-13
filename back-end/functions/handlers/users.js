@@ -13,38 +13,38 @@ firebase.initializeApp(firebaseConfig);
 
 exports.signup = (req, res) => {
    const newUser = {
-      email: req.body.email,
-      password: req.body.password,
-      confirmPassword: req.body.confirmPassword,
-      handle: req.body.handle
+     email: req.body.email,
+     password: req.body.password,
+     confirmPassword: req.body.confirmPassword,
+     handle: req.body.handle
    };
-
+ 
    const { valid, errors } = validateSignupData(newUser);
-
+ 
    if (!valid) {
       return res.status(400).json(errors);
    }
-
+ 
    const noImage = 'no-img.png';
-
+ 
    let token, userId;
    db
       .doc(`/users/${newUser.handle}`)
       .get()
       .then(doc => {
          if (doc.exists) {
-            return res.status(400).json({ hadle: 'this handle is already taken!' });
+            return res.status(400).json({ handle: 'this handle is already taken!' });
          } else {
             return firebase
-            .auth()
-            .createUserWithEmailAndPassword(newUser.email, newUser.password);
-         }
-      })
-      .then(data => {
+               .auth()
+               .createUserWithEmailAndPassword(newUser.email, newUser.password);
+       }
+     })
+     .then(data => {
          userId = data.user.uid;
          return data.user.getIdToken();
-      })
-      .then(idToken => {
+     })
+     .then(idToken => {
          token = idToken;
          var userCredentials = {
             handle: newUser.handle,
@@ -55,11 +55,11 @@ exports.signup = (req, res) => {
          };
 
          return db.doc(`/users/${newUser.handle}`).set(userCredentials);
-      })
-      .then(() => {
+     })
+     .then(() => {
          return res.status(201).json({ token });
-      })
-      .catch(err => {
+     })
+     .catch(err => {
          console.log(err);
 
          if (err.code === 'auth/email-already-in-use') {
@@ -67,10 +67,8 @@ exports.signup = (req, res) => {
          } else {
             return res.status(500).json({ general: 'Something went wrong, please try again!' });
          }
-      });
-
-   busboy.end(req.rawBody);
-}
+     });
+};
 
 exports.login = (req, res) => {
    const user = {
