@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button'; 
 import IconButton from '@material-ui/core/IconButton'; 
 import Tooltip from '@material-ui/core/Tooltip'; 
+import EditDetails from './EditDetails';
 
 import LocationOn from '@material-ui/icons/LocationOn'; 
 import LinkIcon from '@material-ui/icons/Link';
@@ -146,6 +147,7 @@ class Profile extends Component {
                      <KeyboardReturn color="primary" />
                   </IconButton>
                </Tooltip>
+               <EditDetails />
             </div>
          </Paper>
       );
