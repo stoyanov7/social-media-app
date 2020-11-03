@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import dayjs from 'dayjs'; 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { uploadImage } from '../redux/actions/userAction';
+import { uploadImage, logoutUser } from '../redux/actions/userAction';
 
 import Paper from '@material-ui/core/Paper';
 import MuiLink from '@material-ui/core/Link'; 
@@ -16,6 +16,7 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
 import CalendarToday from '@material-ui/icons/CalendarToday'; 
 import EditIcon from '@material-ui/icons/Edit'; 
+import KeyboardReturn from '@material-ui/icons/KeyboardReturn'; 
 
 import withStyles from '@material-ui/core/styles/withStyles';
 
@@ -81,6 +82,10 @@ class Profile extends Component {
       fileInput.click();
    };
 
+   handleLogout = () => {
+      this.props.logoutUser();
+   };
+
    render() {
       const {
          classes,
@@ -136,6 +141,11 @@ class Profile extends Component {
                   <CalendarToday color="primary" />{' '}
                   <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span> 
                </div>
+               <Tooltip title="Logout" placement="top">
+                  <IconButton onClick={this.handleLogout}>
+                     <KeyboardReturn color="primary" />
+                  </IconButton>
+               </Tooltip>
             </div>
          </Paper>
       );
@@ -174,12 +184,13 @@ const mapStateToProps = (state) => ({
    user: state.user
 });
 
-const mapActionsToProps = { uploadImage }; 
+const mapActionsToProps = { uploadImage, logoutUser }; 
 
 Profile.propTypes = {
    user: PropTypes.object.isRequired,
    classes: PropTypes.object.isRequired,
    uploadImage: PropTypes.func.isRequired,
+   logoutUser: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Profile))
