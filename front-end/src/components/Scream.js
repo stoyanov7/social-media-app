@@ -11,6 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import MyButton from './MyButton';
+import DeleteScream from './DeleteScream';
 
 import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
@@ -20,6 +21,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
    card: {
+      position: 'relative',
       display: 'flex',
       marginBottom: 20
    },
@@ -61,10 +63,14 @@ class Scream extends Component {
             createdAt, 
             body,
             likeCount,
-            commentCount 
+            commentCount,
+            screamId
          },
          user: {
-            authenticated
+            authenticated,
+            credentials: {
+               handle
+            }
          } 
       } = this.props;
 
@@ -84,7 +90,11 @@ class Scream extends Component {
                <FavoriteBorderIcon color="primary"/>
             </MyButton>
          )
-      )
+      );
+
+      const deleteButton = authenticated && userHandle === handle ? (
+         <DeleteScream screamId={screamId} />
+      ) : null
 
       return (
          <Card className={classes.card}>
@@ -98,6 +108,7 @@ class Scream extends Component {
                >
                   {userHandle}
                </Typography>
+               {deleteButton}
                <Typography variant="body2" color="textSecondary">
                   {dayjs(createdAt).fromNow()}
                </Typography>
