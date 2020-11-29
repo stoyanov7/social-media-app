@@ -17,6 +17,16 @@ Content-Type: application/json
    "userHandle": "user"
 }
 
+### Post scream with empty body
+POST {{apiUrl}}/scream
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+   "body": "",
+   "userHandle": "user"
+}
+
 ### Create new user
 POST {{apiUrl}}/signup
 Content-Type: application/json
