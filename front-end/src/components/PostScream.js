@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
-import { postScream } from '../redux/actions/dataAction';
+import { postScream, clearErrors } from '../redux/actions/dataAction';
 
 import MyButton from './MyButton';
 import Dialog from '@material-ui/core/Dialog';
@@ -47,8 +47,7 @@ class PostScream extends Component {
       }
 
       if (!nextProps.ui.errors && !nextProps.ui.loading) {
-         this.setState({ body: '' });
-         this.handleClose();
+         this.setState({ body: '', open: false, errors: {} });
       }
    }
 
@@ -57,6 +56,7 @@ class PostScream extends Component {
    }
 
    handleClose = () => {
+      this.props.clearErrors();
       this.setState({ open: false, errors: {} });
    }
 
@@ -128,11 +128,15 @@ class PostScream extends Component {
 
 PostScream.propTypes = {
    postScream: PropTypes.func.isRequired,
+   clearErrors: PropTypes.func.isRequired,
    ui: PropTypes.object.isRequired
 };
  
 const mapStateToProps = (state) => ({
    ui: state.ui
 });
- 
-export default connect(mapStateToProps, { postScream })(withStyles(styles)(PostScream));
+
+export default connect(
+   mapStateToProps,
+   { postScream, clearErrors }
+)(withStyles(styles)(PostScream));
