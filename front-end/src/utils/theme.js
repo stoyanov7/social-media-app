@@ -16,7 +16,7 @@ export default {
     typography: {
         useNextVariants: true
     },
-    spreadThis: {
+    spread: {
         form: {
           textAlign: 'center'
         },
