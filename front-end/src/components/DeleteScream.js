@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog'; 
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
 
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'; 
 

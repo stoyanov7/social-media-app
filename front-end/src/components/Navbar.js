@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import MyButton from './MyButton';
 import PostScream from './PostScream';
 
-import AddIcon from '@material-ui/icons/Add'; 
 import HomeIcon from '@material-ui/icons/Home';
 import Notifications from '@material-ui/icons/Notifications';
 

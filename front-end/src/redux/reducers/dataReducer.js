@@ -1,5 +1,6 @@
 import {
    SET_SCREAMS,
+   SET_SCREAM,
    LIKE_SCREAM,
    UNLIKE_SCREAM,
    LOADING_DATA,
@@ -26,14 +27,23 @@ export default function(state = initialState, action) {
             screams: action.payload,
             loading: false
          };
-     case LIKE_SCREAM:
-     case UNLIKE_SCREAM:
+      case SET_SCREAM:
+         return {
+            ...state,
+            scream: action.payload
+         };
+      case LIKE_SCREAM:
+      case UNLIKE_SCREAM:
          let index = state.screams.findIndex(
             (scream) => scream.screamId === action.payload.screamId
          );
 
          state.screams[index] = action.payload;
          
+         if (state.scream.screamId === action.payload.screamId) {
+            state.scream = action.payload;
+         }
+
          return {
             ...state
          };
@@ -52,8 +62,7 @@ export default function(state = initialState, action) {
             ...state,
             screams: [ action.payload, ...state.screams ]
          }
-         break;
       default:
-       return state;
+         return state;
    }
 }

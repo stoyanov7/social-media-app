@@ -15,7 +15,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import AppIcon from '../images/icon.png';
 
 const styles = (theme) => ({
-    ...theme.spreadThis
+    ...theme.spread
 });
 
 class Signup extends Component {
