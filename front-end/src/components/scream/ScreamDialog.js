@@ -5,14 +5,14 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getScream } from '../redux/actions/dataAction';
+import { getScream } from '../../redux/actions/dataAction';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import MyButton from './MyButton';
+import MyButton from '../MyButton';
 import LikeButton from './LikeButton';
 
 import CloseIcon from '@material-ui/icons/Close';

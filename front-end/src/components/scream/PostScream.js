@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
-import { postScream, clearErrors } from '../redux/actions/dataAction';
+import { postScream, clearErrors } from '../../redux/actions/dataAction';
 
-import MyButton from './MyButton';
+import MyButton from '../MyButton';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';

@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { getScreams } from '../redux/actions/dataAction';
 
 import Grid from '@material-ui/core/Grid';
-import Scream from '../components/Scream';
-import Profile from '../components/Profile';
+import Scream from '../components/scream/Scream';
+import Profile from '../components/profile/Profile';
 
 class Home extends Component {
     componentDidMount() {

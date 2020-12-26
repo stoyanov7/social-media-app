@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import dayjs from 'dayjs'; 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { uploadImage, logoutUser } from '../redux/actions/userAction';
+import { uploadImage, logoutUser } from '../../redux/actions/userAction';
 
 import Paper from '@material-ui/core/Paper';
 import MuiLink from '@material-ui/core/Link'; 
 import Typography from '@material-ui/core/Typography'; 
 import Button from '@material-ui/core/Button';   
 import EditDetails from './EditDetails';
-import MyButton from './MyButton';
+import MyButton from '../MyButton';
 
 import LocationOn from '@material-ui/icons/LocationOn'; 
 import LinkIcon from '@material-ui/icons/Link';

@@ -9,13 +9,12 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import MyButton from './MyButton';
+import MyButton from '../MyButton';
 import DeleteScream from './DeleteScream';
 import ScreamDialog from './ScreamDialog';
 import LikeButton from './LikeButton';
 
 import ChatIcon from '@material-ui/icons/Chat';
-
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
