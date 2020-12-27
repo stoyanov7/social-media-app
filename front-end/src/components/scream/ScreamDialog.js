@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getScream } from '../../redux/actions/dataAction';
+import { getScream, clearErrors } from '../../redux/actions/dataAction';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -14,7 +14,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import MyButton from '../MyButton';
 import LikeButton from './LikeButton';
-import Comments from './Comments'
+import Comments from './Comments';
+import CommentForm from './CommentForm';
 
 import CloseIcon from '@material-ui/icons/Close';
 import UnfoldMore from '@material-ui/icons/UnfoldMore';
@@ -58,6 +59,7 @@ class ScreamDialog extends Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    this.props.clearErrors();
   };
 
   render() {
@@ -110,6 +112,7 @@ class ScreamDialog extends Component {
           <span>{commentCount} comments</span>
         </Grid>
         <hr className={classes.visibleSeparator} />
+        <CommentForm screamId={screamId} />
        <Comments comments={comments} />
       </Grid>
     );
@@ -147,10 +150,11 @@ class ScreamDialog extends Component {
 
 ScreamDialog.propTypes = {
   getScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   screamId: PropTypes.string.isRequired,
   userHandle: PropTypes.string.isRequired,
   scream: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired
+  ui: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -158,9 +162,7 @@ const mapStateToProps = (state) => ({
   ui: state.ui
 });
 
-const mapActionsToProps = {
-  getScream
-};
+const mapActionsToProps = { getScream, clearErrors };
 
 export default connect(
   mapStateToProps,
