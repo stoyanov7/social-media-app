@@ -16,6 +16,7 @@ import AuthRoute from './components/AuthRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import User from './pages/User';
 
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
@@ -55,6 +56,7 @@ function App() {
                   path='/signup' 
                   component={Signup}
                 />
+                <Route exact path='/users/:handle' component={User} />
               </Switch>
             </div>
         </Router>
