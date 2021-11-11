@@ -25,7 +25,7 @@ class CommentForm extends Component {
       }
 
       if (!nextProps.ui.errors && !nextProps.ui.loading) {
-         this.setState({ body: '' });
+         this.setState({ body: '', errors: {} });
       }
    }
 
