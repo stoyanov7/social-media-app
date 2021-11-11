@@ -1,8 +1,8 @@
-@apiUrl = https://europe-west3-social-media-app-fafc6.cloudfunctions.net/api 
+@apiUrl = http://localhost:5000/social-media-app-fafc6/europe-west3/api
 
-@accessToken =
+@accessToken = 
 
-@screamId =
+@screamId = 
 
 ### Get all screams
 GET {{apiUrl}}/screams
