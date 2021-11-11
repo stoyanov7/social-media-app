@@ -41,5 +41,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://europe-west3-social-media-app-fafc6.cloudfunctions.net/api"
+  "proxy": "http://localhost:5000/social-media-app-fafc6/europe-west3/api"
 }

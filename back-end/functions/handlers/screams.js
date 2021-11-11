@@ -159,6 +159,18 @@ exports.likeScream = (req, res) => {
                   return screamDocument.update({ likeCount: screamData.likeCount });
                })
                .then(() => {
+                  return db.collection('comments')
+                     .orderBy('createdAt', 'desc')
+                     .where('screamId', '==', req.params.screamId)
+                     .get();
+               })
+               .then((data) => {
+                  screamData.comments = [];
+
+                  data.forEach((doc) => {
+                     screamData.comments.push(doc.data());
+                  });
+                 
                   return res.json(screamData);
                });
          } else {
@@ -205,6 +217,18 @@ exports.unlikeScream = (req, res) => {
                   return screamDocument.update({ likeCount: screamData.likeCount });
                })
                .then(() => {
+                  return db.collection('comments')
+                     .orderBy('createdAt', 'desc')
+                     .where('screamId', '==', req.params.screamId)
+                     .get();
+               })
+               .then((data) => {
+                  screamData.comments = [];
+
+                  data.forEach((doc) => {
+                     screamData.comments.push(doc.data());
+                  });
+                 
                   return res.json(screamData);
                });
          }
